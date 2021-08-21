@@ -37,15 +37,14 @@ Make sure that all reachability conditions are still met in event of any redunda
 
 ## RECHABILITY REQUIREMENTS
 
-|:arrow_down_small:SRC/DST:arrow_forward:|Sandbox|HV_MGMT|SCADA|Operations|AWS-VPC|AZR-VPC|GCP-VPC|Cloudflare|
-|----------|:-----:|:-----:|:---:|:--------:|:-----:|:-----:|:-----:|:-----:|
-|**Sandbox**   |:heavy_check_mark:|:x:|:x:|:leftwards_arrow_with_hook:|:x:|:x:|:x:|:globe_with_meridians:|
-|**HV_MGMT**   |:x:|:heavy_check_mark:|:x:|:leftwards_arrow_with_hook:|:x:|:x:|:x:|:x:|
-|**SCADA**     |:x:|:x:|:heavy_check_mark:|:leftwards_arrow_with_hook:|:globe_with_meridians:|:globe_with_meridians:|:globe_with_meridians:|:x:|
-|**Operations**|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
-|**AWS-VPC**   |:x:|:x:|:leftwards_arrow_with_hook:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:globe_with_meridians:|
-|**AZR-VPC**   |:x:|:x:|:leftwards_arrow_with_hook:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:globe_with_meridians:|
-|**GCP-VPC**   |:x:|:x:|:leftwards_arrow_with_hook:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:globe_with_meridians:|
+|:arrow_down_small:SRC/DST:arrow_forward:|Sandbox|SCADA|Operations|AWS-VPC|AZR-VPC|GCP-VPC|Cloudflare|
+|----------|:-----:|:---:|:--------:|:-----:|:-----:|:-----:|:-----:|
+|**Sandbox**   |:heavy_check_mark:|:x:|:leftwards_arrow_with_hook:|:x:|:x:|:x:|:globe_with_meridians:|
+|**SCADA**     |:x:|:x:|:leftwards_arrow_with_hook:|:globe_with_meridians:|:globe_with_meridians:|:globe_with_meridians:|:x:|
+|**Operations**|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
+|**AWS-VPC**   |:x:|:x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:globe_with_meridians:|
+|**AZR-VPC**   |:x:|:x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:globe_with_meridians:|
+|**GCP-VPC**   |:x:|:x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:globe_with_meridians:|
 
 |Legend|Action|
 |:---:|-----|
