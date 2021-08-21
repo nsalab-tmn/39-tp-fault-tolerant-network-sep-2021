@@ -13,7 +13,7 @@ In 2021, **Chemisch Thermische Prozesstechnik GmbH (CTP)** plans to implement a 
 Within current project, your team is responsible to implement a simulated infrastructure scenario according to initial design and industry best practices.
 
 ## INSTRUCTIONS TO THE COMPETITOR
-*	Initial topology will be pre-built and read-only access to this topology will be granted to each team using infrastructure simulation platform. Teams will be able to run and configure VMs but will not be able to change topology layout. All ISP devices will be running on the separate shared tenant and will not be accessible by teams.
+*	Initial topology will be pre-built and read-only access to this topology will be granted to each team using infrastructure simulation platform. Teams will be able to run and configure VMs but will not be able to change topology layout. ISP device will not be accessible by teams.
 
 *	Test project marking process will be fully automated, so make sure that following credentials policy is respected:
     * Default user: **admin** (Linux and Cisco VMs)
