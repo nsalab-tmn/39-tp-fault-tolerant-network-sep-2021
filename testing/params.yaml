@@ -1,0 +1,24 @@
+cloudflare-ip: 1.1.1.1
+srv-01-ip: 172.30.101.1
+srv-02-ip: 172.30.102.1
+srv-03-ip: 172.30.103.1
+k8s-01-ip: 172.30.111.1
+k8s-02-ip: 172.30.112.1
+k8s-03-ip: 172.30.113.1
+
+default-ping-count: 5
+linux-ping-parser: 2>&1 | awk -F'/' 'END{ print (/^round-trip/? "OK "$5" ms":"FAIL") }'
+nc-wait: 5
+default-sleep-timer: 18
+
+skip_connections:
+  - terminal_server
+  - dummy
+  - AWS-EDGE
+  - AZR-EDGE
+  - GCP-EDGE
+  - INTERNET
+  # - CORE-01
+  # - CORE-02
+  # - EDGE-01
+  # - EDGE-02

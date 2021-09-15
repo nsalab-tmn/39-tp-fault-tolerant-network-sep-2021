@@ -1,0 +1,66 @@
+- desc: AZR-VPC <-> Sandbox | Deny
+  device: k8s-02
+  action_chain:
+    - action: verify_output
+      action_vars:
+        command: ping {srv-01-ip} -c {default-ping-count} {linux-ping-parser}
+        tags_are_present: True
+        assert_tags:
+          - "FAIL"
+- desc: AZR-VPC <-> SCADA | Deny
+  device: k8s-02
+  action_chain:
+    - action: verify_output
+      action_vars:
+        command: ping {srv-02-ip} -c {default-ping-count} {linux-ping-parser}
+        tags_are_present: True
+        assert_tags:
+          - "FAIL"
+- desc: AZR-VPC <-> Operations | Allow
+  device: k8s-02
+  action_chain:
+    - action: verify_output
+      action_vars:
+        command: ping {srv-03-ip} -c {default-ping-count} {linux-ping-parser}
+        tags_are_present: True
+        assert_tags:
+          - "OK"
+
+- desc: AZR-VPC <-> AWS-VPC | Allow
+  device: k8s-02
+  action_chain:
+    - action: verify_output
+      action_vars:
+        command: ping {k8s-01-ip} -c {default-ping-count} {linux-ping-parser}
+        tags_are_present: True
+        assert_tags:
+          - "OK"
+
+- desc: AZR-VPC <-> GCP-VPC | Allow
+  device: k8s-02
+  action_chain:
+    - action: verify_output
+      action_vars:
+        command: ping {k8s-03-ip} -c {default-ping-count} {linux-ping-parser}
+        tags_are_present: True
+        assert_tags:
+          - "OK"
+
+- desc: AZR-VPC <-> Cloudflare (non-WWW) | Deny
+  device: k8s-02
+  action_chain:
+    - action: verify_output
+      action_vars:
+        command: ping {cloudflare-ip} -c {default-ping-count} {linux-ping-parser}
+        tags_are_present: True
+        assert_tags:
+          - "FAIL"
+- desc: AZR-VPC <-> Cloudflare (WWW) | Allow
+  device: k8s-02
+  action_chain:
+    - action: verify_output
+      action_vars:
+        command: echo test | nc {cloudflare-ip} 80
+        tags_are_present: True
+        assert_tags:
+          - "400 Bad Request"

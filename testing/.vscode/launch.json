@@ -1,0 +1,25 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Run marking",
+            "type": "python",
+            "request": "launch",  
+            "args": [
+                "run", "job", "marking_job.py",
+                "--marking-file", "marking.yaml",
+                "--unit-test", "ut.py",
+                "--internal-params", "params.yaml",
+                "--include-basedir", "testcases.d",
+                "--lab-id", "fa90de",
+
+            ],    
+            "envFile": "${workspaceFolder}/.env",      
+            "program": "/home/menus12/dev/venv-pyats-latest/bin/pyats",
+            "console": "integratedTerminal"
+        }
+    ]
+}

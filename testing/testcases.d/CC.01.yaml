@@ -1,0 +1,63 @@
+- desc: Sandbox <-> SCADA | Deny
+  device: SRV-01
+  action_chain:
+    - action: verify_output
+      action_vars:
+        command: ping {srv-02-ip} repeat {default-ping-count}
+        tags_are_present: False
+        assert_tags:
+          - "!!!"
+- desc: Sandbox <-> Operations | Deny
+  device: SRV-01
+  action_chain:
+    - action: verify_output
+      action_vars:
+        command: ping {srv-03-ip} repeat {default-ping-count}
+        tags_are_present: False
+        assert_tags:
+          - "!!!"
+- desc: Sandbox <-> AWS-VPC | Deny
+  device: SRV-01
+  action_chain:
+    - action: verify_output
+      action_vars:
+        command: ping {k8s-01-ip} repeat {default-ping-count}
+        tags_are_present: False
+        assert_tags:
+          - "!!!"
+- desc: Sandbox <-> AZR-VPC | Deny
+  device: SRV-01
+  action_chain:
+    - action: verify_output
+      action_vars:
+        command: ping {k8s-02-ip} repeat {default-ping-count}
+        tags_are_present: False
+        assert_tags:
+          - "!!!"
+- desc: Sandbox <-> GCP-VPC | Deny
+  device: SRV-01
+  action_chain:
+    - action: verify_output
+      action_vars:
+        command: ping {k8s-03-ip} repeat {default-ping-count}
+        tags_are_present: False
+        assert_tags:
+          - "!!!"
+- desc: Sandbox <-> Cloudflare (WWW) | Allow
+  device: SRV-01
+  action_chain:
+    - action: verify_output
+      action_vars:
+        command: more http://{cloudflare-ip}/e1000_bia.txt
+        tags_are_present: True
+        assert_tags:
+          - "Permission denied"
+- desc: Sandbox <-> Cloudflare (non-WWW) | Deny
+  device: SRV-01
+  action_chain:
+    - action: verify_output
+      action_vars:
+        command: telnet {cloudflare-ip} 8080
+        tags_are_present: False
+        assert_tags:
+          - "Connection refused by remote host"

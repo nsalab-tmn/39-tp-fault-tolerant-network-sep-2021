@@ -1,0 +1,13 @@
+- desc: Attaching both on-prem ISPs
+  device: dummy
+  action_chain:
+    - action: set_link_condition
+      action_vars:
+        device: CORE-01
+        interface: GigabitEthernet0/0
+        state: start
+    - action: set_link_condition
+      action_vars:
+        device: CORE-02
+        interface: GigabitEthernet0/0
+        state: start

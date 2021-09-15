@@ -1,0 +1,54 @@
+- desc: Attaching first redundant set of devices
+  device: dummy
+  action_chain:
+    - action: set_link_condition
+      action_vars:
+        device: CORE-01
+        interface: GigabitEthernet0/0
+        state: start
+    - action: set_link_condition
+      action_vars:
+        device: CORE-01
+        interface: GigabitEthernet0/1
+        state: start
+    - action: set_link_condition
+      action_vars:
+        device: CORE-01
+        interface: GigabitEthernet0/2
+        state: start
+    - action: set_link_condition
+      action_vars:
+        device: CORE-01
+        interface: GigabitEthernet0/3
+        state: start
+    - action: set_link_condition
+      action_vars:
+        device: CORE-01
+        interface: GigabitEthernet1/0
+        state: start
+    - action: set_link_condition
+      action_vars:
+        device: CORE-01
+        interface: GigabitEthernet1/1
+        state: start
+    - action: set_link_condition
+      action_vars:
+        device: CORE-01
+        interface: GigabitEthernet1/2
+        state: start
+    - action: set_link_condition
+      action_vars:
+        device: CORE-01
+        interface: GigabitEthernet1/3
+        state: start
+    - action: set_link_condition
+      action_vars:
+        device: EDGE-02
+        interface: GigabitEthernet0/1
+        state: start
+- desc: Wait for convergence
+  device: dummy
+  action_chain:
+    - action: go_sleep
+      action_vars:
+        seconds: '{default-sleep-timer}'

@@ -1,0 +1,62 @@
+- desc: Shutting down second redundant path | SRV-01
+  device: SRV-01
+  action_chain:
+    - action: config
+      action_vars:
+        commands: 
+          - interface GigabitEthernet0/1
+          - shutdown
+- desc: Shutting down second redundant path | SRV-02
+  device: SRV-02
+  action_chain:
+    - action: config
+      action_vars:
+        commands: 
+          - interface GigabitEthernet0/0
+          - shutdown
+- desc: Shutting down second redundant path | SRV-03
+  device: SRV-03
+  action_chain:
+    - action: config
+      action_vars:
+        commands: 
+          - interface GigabitEthernet0/1
+          - shutdown
+- desc: Shutting down second redundant path | EDGE-01
+  device: EDGE-01
+  action_chain:
+    - action: config
+      action_vars:
+        commands: 
+          - interface GigabitEthernet0/1
+          - shutdown
+- desc: Shutting down second redundant path | EDGE-02
+  device: EDGE-02
+  action_chain:
+    - action: config
+      action_vars:
+        commands: 
+          - interface GigabitEthernet0/0
+          - shutdown
+- desc: Shutting down second redundant path | CORE-01
+  device: CORE-01
+  action_chain:
+    - action: config
+      action_vars:
+        commands: 
+          - interface GigabitEthernet1/3
+          - shutdown
+- desc: Shutting down second redundant path | CORE-02
+  device: CORE-02
+  action_chain:
+    - action: config
+      action_vars:
+        commands: 
+          - interface GigabitEthernet0/0
+          - shutdown
+- desc: Wait for convergence
+  device: dummy
+  action_chain:
+    - action: go_sleep
+      action_vars:
+        seconds: '{default-sleep-timer}'

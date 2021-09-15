@@ -1,0 +1,19 @@
+testbed:
+  credentials:
+    default:
+      username: cisco
+      password: cisco
+
+devices:
+  terminal_server:
+    connections:
+      cli:
+        ip: '%ENV{CML_HOST}'
+    credentials:
+      default:
+        password: '%ENV{CML_PASSWORD}'
+        username: '%ENV{CML_USER}'
+  dummy:
+    connections:
+      a:
+        ip: localhost

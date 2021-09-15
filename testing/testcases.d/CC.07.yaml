@@ -1,0 +1,29 @@
+- desc: AWS-VPC <-> AZR-VPC | Allow
+  device: k8s-01
+  action_chain:
+    - action: verify_output
+      action_vars:
+        command: ping {k8s-02-ip} -c {default-ping-count} {linux-ping-parser}
+        tags_are_present: True
+        assert_tags:
+          - "OK"
+
+- desc: AZR-VPC <-> GCP-VPC | Allow
+  device: k8s-02
+  action_chain:
+    - action: verify_output
+      action_vars:
+        command: ping {k8s-03-ip} -c {default-ping-count} {linux-ping-parser}
+        tags_are_present: True
+        assert_tags:
+          - "OK"
+
+- desc: GCP-VPC <-> AWS-VPC | Allow
+  device: k8s-03
+  action_chain:
+    - action: verify_output
+      action_vars:
+        command: ping {k8s-01-ip} -c {default-ping-count} {linux-ping-parser}
+        tags_are_present: True
+        assert_tags:
+          - "OK"

@@ -1,0 +1,412 @@
+devices:
+  AWS-EDGE:
+    connections:
+      a:
+        command: open /fa90de/n5/0
+        protocol: telnet
+        proxy: terminal_server
+      defaults:
+        class: unicon.Unicon
+    credentials:
+      default:
+        password: cisco
+        username: cisco
+    os: iosxe
+    series: csr1000v
+    type: router
+  AZR-EDGE:
+    connections:
+      a:
+        command: open /fa90de/n6/0
+        protocol: telnet
+        proxy: terminal_server
+      defaults:
+        class: unicon.Unicon
+    credentials:
+      default:
+        password: cisco
+        username: cisco
+    os: iosxe
+    series: csr1000v
+    type: router
+  CORE-01:
+    connections:
+      a:
+        command: open /fa90de/n0/0
+        protocol: telnet
+        proxy: terminal_server
+      defaults:
+        class: unicon.Unicon
+    credentials:
+      default:
+        password: cisco
+        username: cisco
+    os: ios
+    series: iosv
+    type: switch
+  CORE-02:
+    connections:
+      a:
+        command: open /fa90de/n1/0
+        protocol: telnet
+        proxy: terminal_server
+      defaults:
+        class: unicon.Unicon
+    credentials:
+      default:
+        password: cisco
+        username: cisco
+    os: ios
+    series: iosv
+    type: switch
+  EDGE-01:
+    connections:
+      a:
+        command: open /fa90de/n2/0
+        protocol: telnet
+        proxy: terminal_server
+      defaults:
+        class: unicon.Unicon
+    credentials:
+      default:
+        password: cisco
+        username: cisco
+    os: ios
+    series: iosv
+    type: router
+  EDGE-02:
+    connections:
+      a:
+        command: open /fa90de/n3/0
+        protocol: telnet
+        proxy: terminal_server
+      defaults:
+        class: unicon.Unicon
+    credentials:
+      default:
+        password: cisco
+        username: cisco
+    os: ios
+    series: iosv
+    type: router
+  GCP-EDGE:
+    connections:
+      a:
+        command: open /fa90de/n7/0
+        protocol: telnet
+        proxy: terminal_server
+      defaults:
+        class: unicon.Unicon
+    credentials:
+      default:
+        password: cisco
+        username: cisco
+    os: iosxe
+    series: csr1000v
+    type: router
+  INTERNET:
+    connections:
+      a:
+        command: open /fa90de/n4/0
+        protocol: telnet
+        proxy: terminal_server
+      defaults:
+        class: unicon.Unicon
+    credentials:
+      default:
+        password: cisco
+        username: cisco
+    os: ios
+    series: iosv
+    type: router
+  SRV-01:
+    connections:
+      a:
+        command: open /fa90de/n10/0
+        protocol: telnet
+        proxy: terminal_server
+      defaults:
+        class: unicon.Unicon
+    credentials:
+      default:
+        password: cisco
+        username: cisco
+    os: ios
+    series: iosv
+    type: switch
+  SRV-02:
+    connections:
+      a:
+        command: open /fa90de/n9/0
+        protocol: telnet
+        proxy: terminal_server
+      defaults:
+        class: unicon.Unicon
+    credentials:
+      default:
+        password: cisco
+        username: cisco
+    os: ios
+    series: iosv
+    type: switch
+  SRV-03:
+    connections:
+      a:
+        command: open /fa90de/n14/0
+        protocol: telnet
+        proxy: terminal_server
+      defaults:
+        class: unicon.Unicon
+    credentials:
+      default:
+        password: cisco
+        username: cisco
+    os: ios
+    series: iosv
+    type: switch
+  dummy:
+    connections:
+      a:
+        ip: localhost
+  k8s-01:
+    connections:
+      a:
+        command: open /fa90de/n11/0
+        protocol: telnet
+        proxy: terminal_server
+      defaults:
+        class: unicon.Unicon
+    credentials:
+      default:
+        password: cisco
+        username: cisco
+    os: linux
+    type: server
+  k8s-02:
+    connections:
+      a:
+        command: open /fa90de/n12/0
+        protocol: telnet
+        proxy: terminal_server
+      defaults:
+        class: unicon.Unicon
+    credentials:
+      default:
+        password: cisco
+        username: cisco
+    os: linux
+    type: server
+  k8s-03:
+    connections:
+      a:
+        command: open /fa90de/n13/0
+        protocol: telnet
+        proxy: terminal_server
+      defaults:
+        class: unicon.Unicon
+    credentials:
+      default:
+        password: cisco
+        username: cisco
+    os: linux
+    type: server
+  terminal_server:
+    connections:
+      cli:
+        ip: '%ENV{CML_HOST}'
+        protocol: ssh
+    credentials:
+      default:
+        password: '%ENV{CML_PASSWORD}'
+        username: '%ENV{CML_USER}'
+    os: linux
+    type: linux
+testbed:
+  credentials:
+    default:
+      password: cisco
+      username: cisco
+  name: ES2021 Module C (Base)
+topology:
+  AWS-EDGE:
+    interfaces:
+      GigabitEthernet1:
+        link: l12
+        type: ethernet
+      GigabitEthernet2:
+        link: l15
+        type: ethernet
+      Loopback0:
+        type: loopback
+  AZR-EDGE:
+    interfaces:
+      GigabitEthernet1:
+        link: l13
+        type: ethernet
+      GigabitEthernet2:
+        link: l16
+        type: ethernet
+      Loopback0:
+        type: loopback
+  CORE-01:
+    interfaces:
+      GigabitEthernet0/0:
+        link: l0
+        type: ethernet
+      GigabitEthernet0/1:
+        link: l2
+        type: ethernet
+      GigabitEthernet0/2:
+        link: l4
+        type: ethernet
+      GigabitEthernet0/3:
+        link: l6
+        type: ethernet
+      GigabitEthernet1/0:
+        link: l8
+        type: ethernet
+      GigabitEthernet1/1:
+        link: l10
+        type: ethernet
+      GigabitEthernet1/2:
+        link: l18
+        type: ethernet
+      GigabitEthernet1/3:
+        link: l19
+        type: ethernet
+      Loopback0:
+        type: loopback
+  CORE-02:
+    interfaces:
+      GigabitEthernet0/0:
+        link: l1
+        type: ethernet
+      GigabitEthernet0/1:
+        link: l3
+        type: ethernet
+      GigabitEthernet0/2:
+        link: l5
+        type: ethernet
+      GigabitEthernet0/3:
+        link: l7
+        type: ethernet
+      GigabitEthernet1/0:
+        link: l9
+        type: ethernet
+      GigabitEthernet1/1:
+        link: l11
+        type: ethernet
+      GigabitEthernet1/2:
+        link: l18
+        type: ethernet
+      GigabitEthernet1/3:
+        link: l19
+        type: ethernet
+      Loopback0:
+        type: loopback
+  EDGE-01:
+    interfaces:
+      GigabitEthernet0/0:
+        link: l8
+        type: ethernet
+      GigabitEthernet0/1:
+        link: l9
+        type: ethernet
+      Loopback0:
+        type: loopback
+  EDGE-02:
+    interfaces:
+      GigabitEthernet0/0:
+        link: l10
+        type: ethernet
+      GigabitEthernet0/1:
+        link: l11
+        type: ethernet
+      Loopback0:
+        type: loopback
+  GCP-EDGE:
+    interfaces:
+      GigabitEthernet1:
+        link: l14
+        type: ethernet
+      GigabitEthernet2:
+        link: l17
+        type: ethernet
+      Loopback0:
+        type: loopback
+  INTERNET:
+    interfaces:
+      GigabitEthernet0/0:
+        link: l0
+        type: ethernet
+      GigabitEthernet0/1:
+        link: l1
+        type: ethernet
+      GigabitEthernet0/2:
+        link: l12
+        type: ethernet
+      GigabitEthernet0/3:
+        link: l13
+        type: ethernet
+      GigabitEthernet0/4:
+        link: l14
+        type: ethernet
+      Loopback0:
+        type: loopback
+  SRV-01:
+    interfaces:
+      GigabitEthernet0/0:
+        link: l2
+        type: ethernet
+      GigabitEthernet0/1:
+        link: l3
+        type: ethernet
+      GigabitEthernet0/2:
+        type: ethernet
+      GigabitEthernet0/3:
+        type: ethernet
+      Loopback0:
+        type: loopback
+  SRV-02:
+    interfaces:
+      GigabitEthernet0/0:
+        link: l4
+        type: ethernet
+      GigabitEthernet0/1:
+        link: l5
+        type: ethernet
+      GigabitEthernet0/2:
+        type: ethernet
+      GigabitEthernet0/3:
+        type: ethernet
+      Loopback0:
+        type: loopback
+  SRV-03:
+    interfaces:
+      GigabitEthernet0/0:
+        link: l6
+        type: ethernet
+      GigabitEthernet0/1:
+        link: l7
+        type: ethernet
+      GigabitEthernet0/2:
+        type: ethernet
+      GigabitEthernet0/3:
+        type: ethernet
+      Loopback0:
+        type: loopback
+  k8s-01:
+    interfaces:
+      eth0:
+        link: l15
+        type: ethernet
+  k8s-02:
+    interfaces:
+      eth0:
+        link: l16
+        type: ethernet
+  k8s-03:
+    interfaces:
+      eth0:
+        link: l17
+        type: ethernet
