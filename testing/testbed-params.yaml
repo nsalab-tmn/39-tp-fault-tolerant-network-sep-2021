@@ -1,8 +1,8 @@
 testbed:
   credentials:
     default:
-      username: cisco
-      password: cisco
+      username: admin
+      password: Passw0rd!
 
 devices:
   terminal_server:
