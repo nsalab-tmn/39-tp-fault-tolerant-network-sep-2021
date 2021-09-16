@@ -5,7 +5,7 @@ from pyats.easypy import Task
 from genie import testbed
 from yamlinclude import YamlIncludeConstructor
 from argparse import ArgumentParser
-from assessment import update_dict, setenv, generate_testbed, get_cml_lab
+from assessment import update_dict, generate_testbed, get_cml_lab
 import os
 
 
