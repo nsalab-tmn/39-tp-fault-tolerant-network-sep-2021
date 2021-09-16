@@ -4,18 +4,18 @@
     - action: verify_output
       action_vars:
         command: ping {srv-01-ip} -c {default-ping-count} {linux-ping-parser}
-        tags_are_present: True
+        tags_are_present: False
         assert_tags:
-          - "FAIL"
+          - "OK"
 - desc: GCP-VPC <-> SCADA | Deny
   device: k8s-03
   action_chain:
     - action: verify_output
       action_vars:
         command: ping {srv-02-ip} -c {default-ping-count} {linux-ping-parser}
-        tags_are_present: True
+        tags_are_present: False
         assert_tags:
-          - "FAIL"
+          - "OK"
 - desc: GCP-VPC <-> Operations | Allow
   device: k8s-03
   action_chain:
@@ -52,9 +52,9 @@
     - action: verify_output
       action_vars:
         command: ping {cloudflare-ip} -c {default-ping-count} {linux-ping-parser}
-        tags_are_present: True
+        tags_are_present: False
         assert_tags:
-          - "FAIL"
+          - "OK"
 - desc: GCP-VPC <-> Cloudflare (WWW) | Allow
   device: k8s-03
   action_chain:
