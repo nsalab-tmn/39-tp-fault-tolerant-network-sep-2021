@@ -3,64 +3,64 @@
   action_chain:
     - action: verify_output
       action_vars:
-        command: ping {srv-01-ip} -c {default-ping-count} {linux-ping-parser}
-        tags_are_present: False
+        command: ping {srv-01-ip} -c {default-ping-count} 
+        tags_are_present: True
         assert_tags:
-          - "OK"
+          - "100% packet loss"
 - desc: AWS-VPC <-> SCADA | Deny
   device: k8s-01
   action_chain:
     - action: verify_output
       action_vars:
-        command: ping {srv-02-ip} -c {default-ping-count} {linux-ping-parser}
-        tags_are_present: False
+        command: ping {srv-02-ip} -c {default-ping-count}
+        tags_are_present: True
         assert_tags:
-          - "OK"
+          - "100% packet loss"
 - desc: AWS-VPC <-> Operations | Allow
   device: k8s-01
   action_chain:
     - action: verify_output
       action_vars:
-        command: ping {srv-03-ip} -c {default-ping-count} {linux-ping-parser}
-        tags_are_present: True
+        command: ping {srv-03-ip} -c {default-ping-count}
+        tags_are_present: False
         assert_tags:
-          - "OK"
+          - "100% packet loss"
 
 - desc: AWS-VPC <-> AZR-VPC | Allow
   device: k8s-01
   action_chain:
     - action: verify_output
       action_vars:
-        command: ping {k8s-02-ip} -c {default-ping-count} {linux-ping-parser}
-        tags_are_present: True
+        command: ping {k8s-02-ip} -c {default-ping-count}
+        tags_are_present: False
         assert_tags:
-          - "OK"
+          - "100% packet loss"
 
 - desc: AWS-VPC <-> GCP-VPC | Allow
   device: k8s-01
   action_chain:
     - action: verify_output
       action_vars:
-        command: ping {k8s-03-ip} -c {default-ping-count} {linux-ping-parser}
-        tags_are_present: True
+        command: ping {k8s-03-ip} -c {default-ping-count}
+        tags_are_present: False
         assert_tags:
-          - "OK"
+          - "100% packet loss"
 
 - desc: AWS-VPC <-> Cloudflare (non-WWW) | Deny
   device: k8s-01
   action_chain:
     - action: verify_output
       action_vars:
-        command: ping {cloudflare-ip} -c {default-ping-count} {linux-ping-parser}
-        tags_are_present: False
+        command: ping {cloudflare-ip} -c {default-ping-count}
+        tags_are_present: True
         assert_tags:
-          - "OK"
+          - "100% packet loss"
 - desc: AWS-VPC <-> Cloudflare (WWW) | Allow
   device: k8s-01
   action_chain:
     - action: verify_output
       action_vars:
-        command: echo test | nc {cloudflare-ip} 80
+        command: wget http://{cloudflare-ip}/api
         tags_are_present: True
         assert_tags:
-          - "400 Bad Request"
+          - "404 Not Found"

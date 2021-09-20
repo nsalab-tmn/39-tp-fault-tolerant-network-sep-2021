@@ -26,29 +26,38 @@
         tags_are_present: False
         assert_tags:
           - "!!!"
-- desc: Run WWW socket on AWS-VPC
-  device: k8s-01
-  action_chain:
-    - action: run_shell_commands
-      action_vars:
-        commands: 
-          - sudo nc -p 80 -l -w {nc-wait} > out.put &
-- desc: Try WWW socket on AWS-VPC
-  device: SRV-02
-  action_chain:
-    - action: run_shell_commands
-      action_vars:
-        commands: 
-          - more http://{k8s-01-ip}/api
+# - desc: Run WWW socket on AWS-VPC
+#   device: k8s-01
+#   action_chain:
+#     - action: run_shell_commands
+#       action_vars:
+#         commands: 
+#           - sudo nc -p 80 -l -w {nc-wait} > out.put &
+# - desc: Try WWW socket on AWS-VPC
+#   device: SRV-02
+#   action_chain:
+#     - action: run_shell_commands
+#       action_vars:
+#         commands: 
+#           - more http://{k8s-01-ip}/api
+# - desc: SCADA <-> AWS-VPC (WWW) | Allow
+#   device: k8s-01
+#   action_chain:
+#     - action: verify_output
+#       action_vars:
+#         command: cat out.put && rm out.put
+#         tags_are_present: True
+#         assert_tags:
+#           - "/api"
 - desc: SCADA <-> AWS-VPC (WWW) | Allow
-  device: k8s-01
+  device: SRV-02
   action_chain:
     - action: verify_output
       action_vars:
-        command: cat out.put && rm out.put
+        command: more http://{k8s-01-ip}/api
         tags_are_present: True
         assert_tags:
-          - "/api"
+          - "No such file or directory"
 
 - desc: SCADA <-> AZR-VPC (non-WWW) | Deny
   device: SRV-02
@@ -59,30 +68,38 @@
         tags_are_present: False
         assert_tags:
           - "!!!"
-- desc: Run WWW socket on AZR-VPC
-  device: k8s-02
-  action_chain:
-    - action: run_shell_commands
-      action_vars:
-        commands: 
-          - sudo nc -p 80 -l -w {nc-wait} > out.put &
-- desc: Try WWW socket on AZR-VPC
-  device: SRV-02
-  action_chain:
-    - action: run_shell_commands
-      action_vars:
-        commands: 
-          - more http://{k8s-02-ip}/api
+# - desc: Run WWW socket on AZR-VPC
+#   device: k8s-02
+#   action_chain:
+#     - action: run_shell_commands
+#       action_vars:
+#         commands: 
+#           - sudo nc -p 80 -l -w {nc-wait} > out.put &
+# - desc: Try WWW socket on AZR-VPC
+#   device: SRV-02
+#   action_chain:
+#     - action: run_shell_commands
+#       action_vars:
+#         commands: 
+#           - more http://{k8s-02-ip}/api
+# - desc: SCADA <-> AZR-VPC (WWW) | Allow
+#   device: k8s-02
+#   action_chain:
+#     - action: verify_output
+#       action_vars:
+#         command: cat out.put && rm out.put
+#         tags_are_present: True
+#         assert_tags:
+#           - "/api"
 - desc: SCADA <-> AZR-VPC (WWW) | Allow
-  device: k8s-02
+  device: SRV-02
   action_chain:
     - action: verify_output
       action_vars:
-        command: cat out.put && rm out.put
+        command: more http://{k8s-02-ip}/api
         tags_are_present: True
         assert_tags:
-          - "/api"
-
+          - "No such file or directory"
 
 - desc: SCADA <-> GCP-VPC (non-WWW) | Deny
   device: SRV-02
@@ -93,30 +110,38 @@
         tags_are_present: False
         assert_tags:
           - "!!!"
-- desc: Run WWW socket on GCP-VPC
-  device: k8s-03
-  action_chain:
-    - action: run_shell_commands
-      action_vars:
-        commands: 
-          - sudo nc -p 80 -l -w {nc-wait} > out.put &
-- desc: Try WWW socket on GCP-VPC
-  device: SRV-02
-  action_chain:
-    - action: run_shell_commands
-      action_vars:
-        commands: 
-          - more http://{k8s-03-ip}/api
+# - desc: Run WWW socket on GCP-VPC
+#   device: k8s-03
+#   action_chain:
+#     - action: run_shell_commands
+#       action_vars:
+#         commands: 
+#           - sudo nc -p 80 -l -w {nc-wait} > out.put &
+# - desc: Try WWW socket on GCP-VPC
+#   device: SRV-02
+#   action_chain:
+#     - action: run_shell_commands
+#       action_vars:
+#         commands: 
+#           - more http://{k8s-03-ip}/api
+# - desc: SCADA <-> GCP-VPC (WWW) | Allow
+#   device: k8s-03
+#   action_chain:
+#     - action: verify_output
+#       action_vars:
+#         command: cat out.put && rm out.put
+#         tags_are_present: True
+#         assert_tags:
+#           - "/api"
 - desc: SCADA <-> GCP-VPC (WWW) | Allow
-  device: k8s-03
+  device: SRV-02
   action_chain:
     - action: verify_output
       action_vars:
-        command: cat out.put && rm out.put
+        command: more http://{k8s-03-ip}/api
         tags_are_present: True
         assert_tags:
-          - "/api"
-
+          - "No such file or directory"
 
 - desc: SCADA <-> Cloudflare WWW | Deny
   device: SRV-02
@@ -132,7 +157,7 @@
   action_chain:
     - action: verify_output
       action_vars:
-        command: telnet {cloudflare-ip} 8080
+        command: ping {cloudflare-ip} repeat {default-ping-count}
         tags_are_present: False
         assert_tags:
-          - "Connection refused by remote host"
+          - "!!!"

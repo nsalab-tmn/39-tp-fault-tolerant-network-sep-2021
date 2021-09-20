@@ -3,27 +3,27 @@
   action_chain:
     - action: verify_output
       action_vars:
-        command: ping {k8s-02-ip} -c {default-ping-count} {linux-ping-parser}
-        tags_are_present: True
+        command: ping {k8s-02-ip} -c {default-ping-count} 
+        tags_are_present: False
         assert_tags:
-          - "OK"
+          - "100% packet loss"
 
 - desc: AZR-VPC <-> GCP-VPC | Allow
   device: k8s-02
   action_chain:
     - action: verify_output
       action_vars:
-        command: ping {k8s-03-ip} -c {default-ping-count} {linux-ping-parser}
-        tags_are_present: True
+        command: ping {k8s-03-ip} -c {default-ping-count} 
+        tags_are_present: False
         assert_tags:
-          - "OK"
+          - "100% packet loss"
 
 - desc: GCP-VPC <-> AWS-VPC | Allow
   device: k8s-03
   action_chain:
     - action: verify_output
       action_vars:
-        command: ping {k8s-01-ip} -c {default-ping-count} {linux-ping-parser}
-        tags_are_present: True
+        command: ping {k8s-01-ip} -c {default-ping-count} 
+        tags_are_present: False
         assert_tags:
-          - "OK"
+          - "100% packet loss"

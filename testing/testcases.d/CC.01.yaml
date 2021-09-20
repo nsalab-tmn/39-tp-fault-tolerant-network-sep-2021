@@ -57,7 +57,7 @@
   action_chain:
     - action: verify_output
       action_vars:
-        command: telnet {cloudflare-ip} 8080
+        command: ping {cloudflare-ip} repeat {default-ping-count}
         tags_are_present: False
         assert_tags:
-          - "Connection refused by remote host"
+          - "!!!"
