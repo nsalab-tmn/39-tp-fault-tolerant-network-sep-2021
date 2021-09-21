@@ -1,0 +1,9 @@
+- desc: GCP-VPC <-> SCADA | Deny
+  device: k8s-03
+  action_chain:
+    - action: verify_output
+      action_vars:
+        command: ping {srv-02-ip} -c {default-ping-count} 
+        tags_are_present: True
+        assert_tags:
+          - "100% packet loss"

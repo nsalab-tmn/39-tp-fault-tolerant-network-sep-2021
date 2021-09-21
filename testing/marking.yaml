@@ -1,50 +1,163 @@
 testcases:
+  Testcase_C0:
+    name: Information
+    setup_steps:
+    tests:
+      IP_CHECK: !include IP-CHECK.yaml
+      EVENT_CHECK: !include EVENT-CHECK.yaml
+    cleanup_steps:
   Testcase_C1:
     name: C1 - Normal operation
     setup_steps:
     tests:
-      Sandbox_ruleset: !include CC.01.yaml
-      SCADA_ruleset: !include CC.02.yaml
-      Operations_ruleset: !include CC.03.yaml
-      AWS_VPC_ruleset: !include CC.04.yaml
-      AZR_VPC_ruleset: !include CC.05.yaml
-      GCP_VPC_ruleset: !include CC.06.yaml
+      Rule_1_2: !include RS1.2.yaml
+      Rule_1_3: !include RS1.3.yaml
+      Rule_1_4: !include RS1.4.yaml
+      Rule_1_5: !include RS1.5.yaml
+      Rule_1_6: !include RS1.6.yaml
+      Rule_1_7: !include RS1.7.yaml
+
+      Rule_2_1: !include RS2.1.yaml
+      Rule_2_3: !include RS2.3.yaml
+      Rule_2_4: !include RS2.4.yaml
+      Rule_2_5: !include RS2.5.yaml
+      Rule_2_6: !include RS2.6.yaml
+      Rule_2_7: !include RS2.7.yaml
+
+      Rule_3_1: !include RS3.1.yaml
+      Rule_3_2: !include RS3.2.yaml
+      Rule_3_4: !include RS3.4.yaml
+      Rule_3_5: !include RS3.5.yaml
+      Rule_3_6: !include RS3.6.yaml
+      Rule_3_7: !include RS3.7.yaml
+
+      Rule_4_1: !include RS4.1.yaml
+      Rule_4_2: !include RS4.2.yaml
+      Rule_4_3: !include RS4.3.yaml
+      Rule_4_5: !include RS4.5.yaml
+      Rule_4_6: !include RS4.6.yaml
+      Rule_4_7: !include RS4.7.yaml
+
+      Rule_5_1: !include RS5.1.yaml
+      Rule_5_2: !include RS5.2.yaml
+      Rule_5_3: !include RS5.3.yaml
+      Rule_5_4: !include RS5.4.yaml
+      Rule_5_6: !include RS5.6.yaml
+      Rule_5_7: !include RS5.7.yaml
+
+      Rule_6_1: !include RS6.1.yaml
+      Rule_6_2: !include RS6.2.yaml
+      Rule_6_3: !include RS6.3.yaml
+      Rule_6_4: !include RS6.4.yaml
+      Rule_6_6: !include RS6.5.yaml
+      Rule_6_7: !include RS6.7.yaml
+
     cleanup_steps:
   Testcase_C2:
     name: C2 - First redundant path is down
     setup_steps: !include iC2.setup.yaml
     tests:
-      Sandbox_ruleset: !include CC.01.yaml
-      SCADA_ruleset: !include CC.02.yaml
-      Operations_ruleset: !include CC.03.yaml
+      Rule_1_2: !include RS1.2.yaml
+      Rule_1_3: !include RS1.3.yaml
+      Rule_1_4: !include RS1.4.yaml
+      Rule_1_5: !include RS1.5.yaml
+      Rule_1_6: !include RS1.6.yaml
+      Rule_1_7: !include RS1.7.yaml
+
+      Rule_2_1: !include RS2.1.yaml
+      Rule_2_3: !include RS2.3.yaml
+      Rule_2_4: !include RS2.4.yaml
+      Rule_2_5: !include RS2.5.yaml
+      Rule_2_6: !include RS2.6.yaml
+      Rule_2_7: !include RS2.7.yaml
+
+      Rule_3_1: !include RS3.1.yaml
+      Rule_3_2: !include RS3.2.yaml
+      Rule_3_4: !include RS3.4.yaml
+      Rule_3_5: !include RS3.5.yaml
+      Rule_3_6: !include RS3.6.yaml
+      Rule_3_7: !include RS3.7.yaml
     cleanup_steps: !include iC2.cleanup.yaml
   Testcase_C3:
     name: C3 - Second redundant path is down
     setup_steps: !include iC3.setup.yaml
     tests:
-      Sandbox_ruleset: !include CC.01.yaml
-      SCADA_ruleset: !include CC.02.yaml
-      Operations_ruleset: !include CC.03.yaml
+      Rule_1_2: !include RS1.2.yaml
+      Rule_1_3: !include RS1.3.yaml
+      Rule_1_4: !include RS1.4.yaml
+      Rule_1_5: !include RS1.5.yaml
+      Rule_1_6: !include RS1.6.yaml
+      Rule_1_7: !include RS1.7.yaml
+
+      Rule_2_1: !include RS2.1.yaml
+      Rule_2_3: !include RS2.3.yaml
+      Rule_2_4: !include RS2.4.yaml
+      Rule_2_5: !include RS2.5.yaml
+      Rule_2_6: !include RS2.6.yaml
+      Rule_2_7: !include RS2.7.yaml
+
+      Rule_3_1: !include RS3.1.yaml
+      Rule_3_2: !include RS3.2.yaml
+      Rule_3_4: !include RS3.4.yaml
+      Rule_3_5: !include RS3.5.yaml
+      Rule_3_6: !include RS3.6.yaml
+      Rule_3_7: !include RS3.7.yaml
     cleanup_steps: !include iC3.cleanup.yaml
   Testcase_C4:
     name: C4 - First redundant set of devices is down
     setup_steps: !include iC4.setup.yaml
     tests:
-      Sandbox_ruleset: !include CC.01.yaml
-      SCADA_ruleset: !include CC.02.yaml
-      Operations_ruleset: !include CC.03.yaml
+      Rule_1_2: !include RS1.2.yaml
+      Rule_1_3: !include RS1.3.yaml
+      Rule_1_4: !include RS1.4.yaml
+      Rule_1_5: !include RS1.5.yaml
+      Rule_1_6: !include RS1.6.yaml
+      Rule_1_7: !include RS1.7.yaml
+
+      Rule_2_1: !include RS2.1.yaml
+      Rule_2_3: !include RS2.3.yaml
+      Rule_2_4: !include RS2.4.yaml
+      Rule_2_5: !include RS2.5.yaml
+      Rule_2_6: !include RS2.6.yaml
+      Rule_2_7: !include RS2.7.yaml
+
+      Rule_3_1: !include RS3.1.yaml
+      Rule_3_2: !include RS3.2.yaml
+      Rule_3_4: !include RS3.4.yaml
+      Rule_3_5: !include RS3.5.yaml
+      Rule_3_6: !include RS3.6.yaml
+      Rule_3_7: !include RS3.7.yaml
     cleanup_steps: !include iC4.cleanup.yaml
   Testcase_C5:
     name: C5 - Second redundant set of devices is down
     setup_steps: !include iC5.setup.yaml
     tests:
-      Sandbox_ruleset: !include CC.01.yaml
-      SCADA_ruleset: !include CC.02.yaml
-      Operations_ruleset: !include CC.03.yaml
+      Rule_1_2: !include RS1.2.yaml
+      Rule_1_3: !include RS1.3.yaml
+      Rule_1_4: !include RS1.4.yaml
+      Rule_1_5: !include RS1.5.yaml
+      Rule_1_6: !include RS1.6.yaml
+      Rule_1_7: !include RS1.7.yaml
+
+      Rule_2_1: !include RS2.1.yaml
+      Rule_2_3: !include RS2.3.yaml
+      Rule_2_4: !include RS2.4.yaml
+      Rule_2_5: !include RS2.5.yaml
+      Rule_2_6: !include RS2.6.yaml
+      Rule_2_7: !include RS2.7.yaml
+
+      Rule_3_1: !include RS3.1.yaml
+      Rule_3_2: !include RS3.2.yaml
+      Rule_3_4: !include RS3.4.yaml
+      Rule_3_5: !include RS3.5.yaml
+      Rule_3_6: !include RS3.6.yaml
+      Rule_3_7: !include RS3.7.yaml
     cleanup_steps: !include iC5.cleanup.yaml
   Testcase_C6:
     name: C6 - On-prem ISPs are down
     setup_steps: !include iC6.setup.yaml
     tests:
-      VPC_TO_VPC_ruleset: !include CC.07.yaml
+      AWS_AZR: !include C6.1.yaml
+      AZR_GCP: !include C6.2.yaml
+      GCP_AWS: !include C6.3.yaml
     cleanup_steps: !include iC6.cleanup.yaml

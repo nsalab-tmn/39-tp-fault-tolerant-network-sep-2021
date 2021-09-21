@@ -1,3 +1,10 @@
+- desc: Check interface status | SRV-01
+  device: SRV-01
+  action_chain:
+    - action: run_shell_commands
+      action_vars:
+        commands: 
+          - show ip int br | i GigabitEthernet0/1
 - desc: Bringing back second redundant path | SRV-01
   device: SRV-01
   action_chain:
@@ -6,6 +13,14 @@
         commands: 
           - interface GigabitEthernet0/1
           - no shutdown
+
+- desc: Check interface status | SRV-02
+  device: SRV-02
+  action_chain:
+    - action: run_shell_commands
+      action_vars:
+        commands: 
+          - show ip int br | i GigabitEthernet0/0
 - desc: Bringing back second redundant path | SRV-02
   device: SRV-02
   action_chain:
@@ -14,6 +29,14 @@
         commands: 
           - interface GigabitEthernet0/0
           - no shutdown
+
+- desc: Check interface status | SRV-03
+  device: SRV-03
+  action_chain:
+    - action: run_shell_commands
+      action_vars:
+        commands: 
+          - show ip int br | i GigabitEthernet0/1
 - desc: Bringing back second redundant path | SRV-03
   device: SRV-03
   action_chain:
@@ -22,6 +45,14 @@
         commands: 
           - interface GigabitEthernet0/1
           - no shutdown
+
+- desc: Check interface status | EDGE-01
+  device: EDGE-01
+  action_chain:
+    - action: run_shell_commands
+      action_vars:
+        commands: 
+          - show ip int br | i GigabitEthernet0/1
 - desc: Bringing back second redundant path | EDGE-01
   device: EDGE-01
   action_chain:
@@ -30,6 +61,14 @@
         commands: 
           - interface GigabitEthernet0/1
           - no shutdown
+
+- desc: Check interface status | EDGE-02
+  device: EDGE-02
+  action_chain:
+    - action: run_shell_commands
+      action_vars:
+        commands: 
+          - show ip int br | i GigabitEthernet0/0
 - desc: Bringing back second redundant path | EDGE-02
   device: EDGE-02
   action_chain:
@@ -38,6 +77,14 @@
         commands: 
           - interface GigabitEthernet0/0
           - no shutdown
+
+- desc: Check interface status | CORE-01
+  device: CORE-01
+  action_chain:
+    - action: run_shell_commands
+      action_vars:
+        commands: 
+          - show ip int br | i GigabitEthernet1/3
 - desc: Bringing back second redundant path | CORE-01
   device: CORE-01
   action_chain:
@@ -46,6 +93,14 @@
         commands: 
           - interface GigabitEthernet1/3
           - no shutdown
+
+- desc: Check interface status | CORE-02
+  device: CORE-01
+  action_chain:
+    - action: run_shell_commands
+      action_vars:
+        commands: 
+          - show ip int br | i GigabitEthernet0/0
 - desc: Bringing back second redundant path | CORE-02
   device: CORE-02
   action_chain:
@@ -54,6 +109,7 @@
         commands: 
           - interface GigabitEthernet0/0
           - no shutdown
+
 - desc: Wait for convergence
   device: dummy
   action_chain:

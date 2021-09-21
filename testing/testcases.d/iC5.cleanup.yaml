@@ -1,3 +1,10 @@
+- desc: Check interface status | CORE-02
+  device: CORE-02
+  action_chain:
+    - action: run_shell_commands
+      action_vars:
+        commands: 
+          - show ip int br
 - desc: Attaching second redundant set of devices | CORE-02
   device: CORE-02
   action_chain:
@@ -7,6 +14,13 @@
           - interface range GigabitEthernet0/0-3, GigabitEthernet1/0-3
           - no shutdown
 
+- desc: Check interface status | EDGE-02
+  device: EDGE-02
+  action_chain:
+    - action: run_shell_commands
+      action_vars:
+        commands: 
+          - show ip int br | i GigabitEthernet0/0|GigabitEthernet0/1
 - desc: Attaching second redundant set of devices | EDGE-02
   device: EDGE-02
   action_chain:

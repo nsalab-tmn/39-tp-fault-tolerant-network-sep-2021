@@ -9,14 +9,14 @@ k8s-03-ip: 172.30.113.1
 default-ping-count: 5
 linux-ping-parser: 2>&1 | awk -F'/' 'END{ print (/^round-trip/? "OK "$5" ms":"FAIL") }'
 nc-wait: 5
-default-sleep-timer: 18
+default-sleep-timer: 60
 
 skip_connections:
   - terminal_server
   - dummy
-  - AWS-EDGE
-  - AZR-EDGE
-  - GCP-EDGE
+  # - AWS-EDGE
+  # - AZR-EDGE
+  # - GCP-EDGE
   - INTERNET
   # - CORE-01
   # - CORE-02

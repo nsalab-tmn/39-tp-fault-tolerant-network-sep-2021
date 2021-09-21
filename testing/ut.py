@@ -45,7 +45,30 @@ def process_steps(test_steps, testbed, steps, params):
                         func(testbed, step['device'], step['action_chain'][seq]['action_vars'], params)
             else:
                 aetest.steps.Step.failed('Device was not connected')
-                
+
+class Testcase_C0(aetest.Testcase):
+    
+    @aetest.setup
+    def setup(self, testbed, steps, params):
+        if self.setup_steps is not None:
+            process_steps(test_steps = self.setup_steps, testbed = testbed, steps=steps, params=params)
+        if self.tests is not None:
+            aetest.loop.mark(self.test, uids=list(self.tests))
+        else:
+            aetest.skip('No tests specified')
+
+    @aetest.test
+    def test(self, testbed, steps, section, params):
+        if self.tests is not None:
+            process_steps(test_steps = self.tests[section.uid], testbed = testbed, steps=steps, params=params)
+        else:
+            aetest.skip('No tests specified')
+
+    @aetest.cleanup
+    def cleanup(self, testbed, steps, params):
+        if self.cleanup_steps is not None:
+            process_steps(test_steps = self.cleanup_steps, testbed = testbed, steps=steps, params=params)
+
 #testcase classes which will take data from datafile
 class Testcase_C1(aetest.Testcase):
     

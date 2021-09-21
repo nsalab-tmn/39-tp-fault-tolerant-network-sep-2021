@@ -1,0 +1,49 @@
+- desc: Check event manager | CORE-01
+  device: CORE-01
+  action_chain:
+    - action: run_shell_commands
+      action_vars:
+        commands: 
+          - "sh run | sec event"
+- desc: Check event manager | CORE-02
+  device: CORE-02
+  action_chain:
+    - action: run_shell_commands
+      action_vars:
+        commands: 
+          - "sh run | sec event"
+- desc: Check event manager | EDGE-01
+  device: EDGE-01
+  action_chain:
+    - action: run_shell_commands
+      action_vars:
+        commands: 
+          - "sh run | sec event"
+- desc: Check event manager | EDGE-02
+  device: EDGE-02
+  action_chain:
+    - action: run_shell_commands
+      action_vars:
+        commands: 
+          - "sh run | sec event"
+- desc: Check event manager | SRV-01
+  device: SRV-01
+  action_chain:
+    - action: run_shell_commands
+      action_vars:
+        commands: 
+          - "sh run | sec event"
+- desc: Check event manager | SRV-02
+  device: SRV-02
+  action_chain:
+    - action: run_shell_commands
+      action_vars:
+        commands: 
+          - "sh run | sec event"
+- desc: Check event manager | SRV-03
+  device: SRV-03
+  action_chain:
+    - action: run_shell_commands
+      action_vars:
+        commands: 
+          - "sh run | sec event"

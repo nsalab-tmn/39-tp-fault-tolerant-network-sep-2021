@@ -1,0 +1,9 @@
+- desc: GCP-VPC <-> AWS-VPC | Allow
+  device: k8s-03
+  action_chain:
+    - action: verify_output
+      action_vars:
+        command: ping {k8s-01-ip} -c {default-ping-count} 
+        tags_are_present: False
+        assert_tags:
+          - "100% packet loss"

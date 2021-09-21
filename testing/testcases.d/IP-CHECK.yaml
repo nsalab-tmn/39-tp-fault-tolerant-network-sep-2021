@@ -1,0 +1,99 @@
+- desc: Check IP | CORE-01
+  device: CORE-01
+  action_chain:
+    - action: run_shell_commands
+      action_vars:
+        commands: 
+          - "show ip int br"
+
+- desc: Check IP | CORE-02
+  device: CORE-02
+  action_chain:
+    - action: run_shell_commands
+      action_vars:
+        commands: 
+          - "show ip int br"
+
+- desc: Check IP | EDGE-01
+  device: EDGE-01
+  action_chain:
+    - action: run_shell_commands
+      action_vars:
+        commands: 
+          - "show ip int br"
+
+- desc: Check IP | EDGE-02
+  device: EDGE-02
+  action_chain:
+    - action: run_shell_commands
+      action_vars:
+        commands: 
+          - "show ip int br"
+
+- desc: Check IP | AWS-EDGE
+  device: AWS-EDGE
+  action_chain:
+    - action: run_shell_commands
+      action_vars:
+        commands: 
+          - "show ip int br"
+
+- desc: Check IP | AZR-EDGE
+  device: AZR-EDGE
+  action_chain:
+    - action: run_shell_commands
+      action_vars:
+        commands: 
+          - "show ip int br"
+
+- desc: Check IP | GCP-EDGE
+  device: GCP-EDGE
+  action_chain:
+    - action: run_shell_commands
+      action_vars:
+        commands: 
+          - "show ip int br"
+
+- desc: Check IP | SRV-01
+  device: SRV-01
+  action_chain:
+    - action: run_shell_commands
+      action_vars:
+        commands: 
+          - "show ip int br"
+- desc: Check IP | SRV-02
+  device: SRV-02
+  action_chain:
+    - action: run_shell_commands
+      action_vars:
+        commands: 
+          - "show ip int br"
+- desc: Check IP | SRV-03
+  device: SRV-03
+  action_chain:
+    - action: run_shell_commands
+      action_vars:
+        commands: 
+          - "show ip int br"
+
+- desc: Check IP | k8s-01
+  device: k8s-01
+  action_chain:
+    - action: run_shell_commands
+      action_vars:
+        commands: 
+          - "ifconfig"
+- desc: Check IP | k8s-02
+  device: k8s-02
+  action_chain:
+    - action: run_shell_commands
+      action_vars:
+        commands: 
+          - "ifconfig"
+- desc: Check IP | k8s-03
+  device: k8s-03
+  action_chain:
+    - action: run_shell_commands
+      action_vars:
+        commands: 
+          - "ifconfig"

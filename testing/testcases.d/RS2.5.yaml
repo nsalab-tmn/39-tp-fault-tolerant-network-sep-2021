@@ -1,0 +1,18 @@
+- desc: SCADA <-> AZR-VPC (non-WWW) | Deny
+  device: SRV-02
+  action_chain:
+    - action: verify_output
+      action_vars:
+        command: ping {k8s-02-ip} repeat {default-ping-count}
+        tags_are_present: False
+        assert_tags:
+          - "!!!"
+- desc: SCADA <-> AZR-VPC (WWW) | Allow
+  device: SRV-02
+  action_chain:
+    - action: verify_output
+      action_vars:
+        command: more http://{k8s-02-ip}/api
+        tags_are_present: True
+        assert_tags:
+          - "No such file or directory"

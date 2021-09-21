@@ -14,11 +14,11 @@
                 "--unit-test", "ut.py",
                 "--internal-params", "params.yaml",
                 "--include-basedir", "testcases.d",
-                "--lab-id", "fa90de",
+                "--lab-id", "be2baf",
 
             ],    
             "envFile": "${workspaceFolder}/.env",      
-            "program": "/home/menus12/dev/venv-pyats-latest/bin/pyats",
+            "program": "/home/ubuntu/venv-pyats/bin/pyats",
             "console": "integratedTerminal"
         }
     ]

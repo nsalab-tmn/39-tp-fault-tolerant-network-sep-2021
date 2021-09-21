@@ -8,8 +8,7 @@ devices:
   terminal_server:
     connections:
       cli:
-        ip: '%ENV{CML_SSH_HOST}'
-        port: '%ENV{CML_SSH_PORT}'
+        ip: '%ENV{CML_HOST}'
     credentials:
       default:
         password: '%ENV{CML_PASSWORD}'

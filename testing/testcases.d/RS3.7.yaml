@@ -1,0 +1,9 @@
+- desc: Operations <-> Cloudflare | Allow
+  device: SRV-03
+  action_chain:
+    - action: verify_output
+      action_vars:
+        command: ping {cloudflare-ip} repeat {default-ping-count}
+        tags_are_present: True
+        assert_tags:
+          - "!!!"

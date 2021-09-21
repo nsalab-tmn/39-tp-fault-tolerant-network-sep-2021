@@ -2,7 +2,7 @@ devices:
   AWS-EDGE:
     connections:
       a:
-        command: open /fa90de/n5/0
+        command: open /be2baf/n5/0
         protocol: telnet
         proxy: terminal_server
       defaults:
@@ -17,7 +17,7 @@ devices:
   AZR-EDGE:
     connections:
       a:
-        command: open /fa90de/n6/0
+        command: open /be2baf/n6/0
         protocol: telnet
         proxy: terminal_server
       defaults:
@@ -32,7 +32,7 @@ devices:
   CORE-01:
     connections:
       a:
-        command: open /fa90de/n0/0
+        command: open /be2baf/n0/0
         protocol: telnet
         proxy: terminal_server
       defaults:
@@ -47,7 +47,7 @@ devices:
   CORE-02:
     connections:
       a:
-        command: open /fa90de/n1/0
+        command: open /be2baf/n1/0
         protocol: telnet
         proxy: terminal_server
       defaults:
@@ -62,7 +62,7 @@ devices:
   EDGE-01:
     connections:
       a:
-        command: open /fa90de/n2/0
+        command: open /be2baf/n2/0
         protocol: telnet
         proxy: terminal_server
       defaults:
@@ -77,7 +77,7 @@ devices:
   EDGE-02:
     connections:
       a:
-        command: open /fa90de/n3/0
+        command: open /be2baf/n3/0
         protocol: telnet
         proxy: terminal_server
       defaults:
@@ -92,7 +92,7 @@ devices:
   GCP-EDGE:
     connections:
       a:
-        command: open /fa90de/n7/0
+        command: open /be2baf/n7/0
         protocol: telnet
         proxy: terminal_server
       defaults:
@@ -107,7 +107,7 @@ devices:
   INTERNET:
     connections:
       a:
-        command: open /fa90de/n4/0
+        command: open /be2baf/n4/0
         protocol: telnet
         proxy: terminal_server
       defaults:
@@ -122,7 +122,7 @@ devices:
   SRV-01:
     connections:
       a:
-        command: open /fa90de/n10/0
+        command: open /be2baf/n10/0
         protocol: telnet
         proxy: terminal_server
       defaults:
@@ -137,7 +137,7 @@ devices:
   SRV-02:
     connections:
       a:
-        command: open /fa90de/n9/0
+        command: open /be2baf/n9/0
         protocol: telnet
         proxy: terminal_server
       defaults:
@@ -152,7 +152,7 @@ devices:
   SRV-03:
     connections:
       a:
-        command: open /fa90de/n14/0
+        command: open /be2baf/n14/0
         protocol: telnet
         proxy: terminal_server
       defaults:
@@ -171,7 +171,7 @@ devices:
   k8s-01:
     connections:
       a:
-        command: open /fa90de/n11/0
+        command: open /be2baf/n11/0
         protocol: telnet
         proxy: terminal_server
       defaults:
@@ -185,7 +185,7 @@ devices:
   k8s-02:
     connections:
       a:
-        command: open /fa90de/n12/0
+        command: open /be2baf/n12/0
         protocol: telnet
         proxy: terminal_server
       defaults:
@@ -199,7 +199,7 @@ devices:
   k8s-03:
     connections:
       a:
-        command: open /fa90de/n13/0
+        command: open /be2baf/n13/0
         protocol: telnet
         proxy: terminal_server
       defaults:
@@ -224,9 +224,9 @@ devices:
 testbed:
   credentials:
     default:
-      password: cisco
-      username: cisco
-  name: ES2021 Module C (Base)
+      password: Passw0rd!
+      username: admin
+  name: ES2021 Module C (Daniel)
 topology:
   AWS-EDGE:
     interfaces:
